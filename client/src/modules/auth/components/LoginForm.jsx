@@ -73,38 +73,47 @@ class LoginForm extends Component {
 
 		return (
 			<div className="container">
-				<form onSubmit={ this.OnSubmit }>
-					{ errorMessage }
-					<div>
-						<label>Username</label>
+				<form
+					className="login-form bg-white p-6 mx-auto border bd-default win-shadow"
+					data-role="validator"
+					action="javascript:"
+					data-clear-invalid="2000"
+					data-on-error-form="invalidForm"
+					data-on-validate-form="validateForm"
+
+					onSubmit={ this.OnSubmit }
+				>
+					{/* Maybe add this if HTTPS? <span className="fg-green dark mif-vpn-lock mif-4x place-right" style={{ marginTop: "-10px" }}></span> */}
+
+					<h2 className="text-light text-center">Insight</h2>
+					<hr className="thin mt-4 mb-4 bg-white" />
+
+					<div className="form-group">
 						<input
-							id="username"
 							type="text"
+							data-role="input"
+							data-prepend="<i class='mif-envelop'></i>"
+							placeholder="Enter your username..."
+							data-validate="required" 
 							value={ this.state.username }
 							onChange={ this.OnUsernameChange }
-
-							autoComplete="on"
 						/>
 					</div>
-
-					<div>
-						<label>Password</label>
+					<div className="form-group">
 						<input
-							id="password"
 							type="password"
+							data-role="input"
+							data-prepend="<i class='mif-key'></i>"
+							placeholder="Enter your password..."
+							data-validate="required" 
 							value={ this.state.password }
 							onChange={ this.OnPasswordChange }
-
-							autoComplete="on"
 						/>
 					</div>
-
-					<input
-						className="button success w-100 mt-2"
-						id="submit"
-						type="submit"
-						value="Submit"
-					/>
+					
+					<div className="form-group mt-4">
+						<button className="button bg-blue fg-white w-100">Login</button>
+					</div>
 				</form>
 			</div>
 		);
