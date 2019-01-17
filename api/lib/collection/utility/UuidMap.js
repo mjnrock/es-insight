@@ -24,17 +24,23 @@ class UuidMap {
 		return this.Entries[uuid];
 	}
 
-	Add(...conts) {
-		for(let i in conts) {
-			this.Entries[conts[i].UUID] = conts[i];
+	Add(...ents) {
+		for(let i in ents) {
+			this.Entries[ents[i].UUID] = ents[i];
 		}
 
 		return this;
 	}
 
-	Remove(...conts) {
-		for(let i in conts) {
-			delete this.Entries[conts[i].UUID];
+	Remove(...ents) {
+		for(let i in ents) {
+			let ent = ents[i];
+
+			if(typeof ent === "string" || ent instanceof String) {
+				delete this.Entries[ent];
+			} else {
+				delete this.Entries[ent.UUID];
+			}
 		}
 
 		return this;
@@ -43,7 +49,7 @@ class UuidMap {
 	ForEach(callback, ...args) {
 		if(typeof callback === "function") {
 			Object.entries(this.Entries).forEach(([ key, value] = e, i) => {
-				callback(key, value, i, this);
+				callback(key, value, i, this, ...args);
 			});
 		}
 	}
