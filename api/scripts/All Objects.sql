@@ -1,0 +1,7 @@
+USE Agnostic
+GO
+
+--	CREATE SCHEMA Insight
+--	GO
+
+SELECT SYSUTCDATETIME() AS 'Now', DATEADD(DAY, 1, GETDATE()) AS 'Tomorrow'

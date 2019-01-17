@@ -1,0 +1,7 @@
+const Auth = {
+	AUTH_REQUEST: "XATH_AUTH_REQUEST",
+	AUTH_SUCCESS: "XATH_AUTH_SUCCESS",
+	AUTH_FAILURE: "XATH_AUTH_FAILURE"
+};
+
+export default Object.freeze(Auth);
