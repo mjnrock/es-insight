@@ -10,8 +10,9 @@ class App extends Component {
 			<BrowserRouter>
 				<Switch>
 					<Route path="/auth" component={ (router) => <Routes.Authentication Router={ router } /> } />
+					<Route path="/unit" component={ (router) => <Routes.UnitPatients Router={ router } /> } />
 					
-					<Route exact path="/" component={ (router) => <Routes.Authentication Router={ router } /> } />
+					<Route exact path="/" component={ (router) => <Routes.UnitPatients Router={ router } /> } />
 				</Switch>
 			</BrowserRouter>
 		);
